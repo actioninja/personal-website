@@ -1,0 +1,215 @@
+/* Import ET Book styles
+   adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
+    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
+    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
+    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book-roman-old-style";
+    src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot");
+    src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.woff") format("woff"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.ttf") format("truetype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* css reset */
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+:root { /* or html or body */
+    box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+    margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+    line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+    text-wrap: balance;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+    font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+/* actually my stuff */
+body {
+    --color-theme-foreground: #2d261f;
+    --color-theme-background: #fff1eb;
+    --color-theme-highlight: #317953;
+    --color-theme-clicked-link: #226769;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        --color-theme-foreground: #fff1eb;
+        --color-theme-background: #2d261f;
+        --color-theme-highlight: #4dab72;
+        --color-theme-clicked-link: #226769;
+    }
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    --color-foreground: var(--color-theme-foreground, black);
+    --color-background: var(--color-theme-background, white);
+    --color-highlight: var(--color-theme-highlight, seagreen);
+    --color-clicked-link: var(--color-theme-clicked-link, teal);
+    --standard-border-style: 2px solid var(--color-foreground);
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+    max-width: 100rem;
+    margin: auto;
+    font-size: 1.8rem;
+    padding: 0 1em;
+}
+
+blockquote {
+    border-left: var(--standard-border-style);
+    padding: 0em 0.5em;
+    margin: 0em 0.4em;
+}
+
+hr {
+    color: var(--color-foreground);
+}
+
+a {
+    color: inherit;
+}
+
+a, .tufte-underline {
+    text-decoration: none;
+    background: -webkit-linear-gradient(var(--color-theme-background), var(--color-theme-background)), -webkit-linear-gradient(var(--color-theme-background), var(--color-theme-background)), -webkit-linear-gradient(currentColor, currentColor);
+    background: linear-gradient(var(--color-theme-background), var(--color-theme-background)), linear-gradient(var(--color-theme-background), var(--color-theme-background)), linear-gradient(currentColor, currentColor);
+    -webkit-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    -moz-background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-size: 0.05em 1px, 0.05em 1px, 1px 1px;
+    background-repeat: no-repeat, no-repeat, repeat-x;
+    text-shadow: 0.03em 0 var(--color-theme-background), -0.03em 0 var(--color-theme-background), 0 0.03em var(--color-theme-background), 0 -0.03em var(--color-theme-background), 0.06em 0 var(--color-theme-background), -0.06em 0 var(--color-theme-background), 0.09em 0 var(--color-theme-background), -0.09em 0 var(--color-theme-background), 0.12em 0 var(--color-theme-background), -0.12em 0 var(--color-theme-background), 0.15em 0 var(--color-theme-background), -0.15em 0 var(--color-theme-background);
+    background-position: 0% 93%, 100% 93%, 0% 93%;
+}
+
+a:hover {
+    color: var(--color-clicked-link);
+}
+
+h1 {
+    padding-bottom: 0.2em;
+    border-bottom: var(--standard-border-style);
+    font-size: 4rem;
+}
+
+h2 {
+    border-bottom: var(--standard-border-style);
+    padding-bottom: 0.2em;
+}
+
+footer {
+    border-top: var(--standard-border-style);
+    padding-top: 1em;
+    margin-top: 2em;
+    font-size: 1.4rem;
+}
+
+nav {
+    padding: 0.3em;
+    border-bottom: var(--standard-border-style);
+    font-family: monospace;
+    font-size: calc(1.15em + 1vmin);
+    margin-bottom: 0.4em;
+}
+
+nav li {
+    display: inline;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav li:not(:last-child):after {
+    content: " | ";
+}
+
+.adblock-warning:before {
+    content: "⚠️ It appears you are not using an adblocker. Advertising is a waste of your brain space. Please consider installing an adblocker.";
+}
+
+div.email-tricky b {
+    display: none;
+}
