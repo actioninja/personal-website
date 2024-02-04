@@ -11,7 +11,6 @@ pub fn header_info(page_title: &str) -> Markup {
             meta name="generator" content="FARTT";
             meta name="robots" content="index, follow";
             link rel="stylesheet" href="/style.css";
-            script src="/js/prebid-ads.js" {}
             title { (page_title) }
         }
     }
@@ -63,24 +62,6 @@ pub fn footer() -> Markup {
             section {
                 "There is no privacy policy because this site does not track you in any way. This site has no advertising, no analytics, and no cookies. The only javascript on this site is used to detect if you're not using adblock, so I can tell you to use adblock."
             }
-            section {
-                "This site is built with Ferris Approved Really Terrific Templates (FARTT) and here is "
-                a href="https://github.com/actioninja/critical-action/tree/prod" {
-                    "Source code for this site."
-                }
-                " and a small writeup on the functionality "
-                a href="/blog/about-this-site" {
-                    "here."
-                }
-            }
-        }
-    }
-}
-
-pub fn adblock_warning() -> Markup {
-    html! {
-        script {
-            "if (window.sneakyRenamedVariableToDetectIfYouAreACoolDude == true) { document.body.classList.add('adblock-warning'); }"
         }
     }
 }
@@ -90,7 +71,6 @@ pub fn wrap(page_title: &str, content: Markup) -> Markup {
         (header_info(page_title))
         body {
             (navbar())
-            (adblock_warning())
             main {
                 (content)
             }

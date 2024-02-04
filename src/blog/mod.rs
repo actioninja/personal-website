@@ -16,6 +16,7 @@ mod page;
 #[serde(rename_all = "camelCase")]
 pub struct Frontmatter {
     pub title: String,
+    pub subheading: String,
     pub date: DateTime<FixedOffset>,
     pub last_mod: Option<DateTime<FixedOffset>>,
     pub category: String,
@@ -41,7 +42,7 @@ pub fn load_blog_pages() -> Vec<Page> {
     let mut pages: Vec<Page> = Vec::new();
     for file in files {
         let file = file.unwrap();
-        let filename = file.file_name().into_string().unwrap().replace(".jd", "");
+        let filename = file.file_name().into_string().unwrap().replace(".dj", "");
         if INVALID_SLUGS.contains(&filename.as_str()) {
             panic!("You used an invalid name for the blog slug ya goober ({INVALID_SLUGS:?})");
         }
@@ -49,6 +50,7 @@ pub fn load_blog_pages() -> Vec<Page> {
         let matter = Matter::<YAML>::new();
         let raw_parsed = matter.parse(&contents);
         let frontmatter: Frontmatter = raw_parsed.data.unwrap().deserialize().unwrap();
+        dbg!(&frontmatter);
         pages.push(Page {
             slug: filename,
             frontmatter,

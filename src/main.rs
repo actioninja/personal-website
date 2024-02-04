@@ -1,12 +1,16 @@
+use std::fs::read_to_string;
 use std::path::Path;
 use std::{fs, io};
 
+use crate::css::optimize_css;
 use crate::layout::wrap;
 
 mod blog;
+mod css;
 pub mod djot;
 pub mod layout;
 pub mod pages;
+mod projects;
 
 const ASCII_NONSENSE: &str = r#"___________ _____  __________ ______________________ 
 \_   _____//  _  \ \______   \\__    ___/\__    ___/ 
@@ -42,6 +46,10 @@ fn main() {
     println!("Dumping assets into the public dir...");
     // dump all the assets into the public directory
     copy_dir_all("assets/public", "public").expect("Could not copy assets to public directory");
+    println!("Minifying and writing css...");
+    let css = read_to_string("assets/style.css").expect("Failed to read style.css");
+    let css = optimize_css(&css);
+    fs::write("public/style.css", css).expect("Failed to write css");
     println!("Generating pages...");
     println!("Generating index.html...");
     // generate static pages
@@ -70,4 +78,12 @@ fn main() {
         .into_string(),
     )
     .expect("Could not write cool-stuff.html");
+
+    println!("Generating projects page...");
+    fs::create_dir_all("public/projects").unwrap();
+    fs::write(
+        "public/projects/index.html",
+        wrap("Projects - Critical Action", projects::projects()).into_string(),
+    )
+    .expect("Could not write the projects page");
 }

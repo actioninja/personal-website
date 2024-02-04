@@ -3,8 +3,8 @@
 
 @font-face {
     font-family: "et-book";
-    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
-    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
+    src: url("public/et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
+    src: url("public/et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("public/et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("public/et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("public/et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -12,8 +12,8 @@
 
 @font-face {
     font-family: "et-book";
-    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
-    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
+    src: url("public/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
+    src: url("public/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("public/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("public/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("public/et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
     font-weight: normal;
     font-style: italic;
     font-display: swap;
@@ -21,8 +21,8 @@
 
 @font-face {
     font-family: "et-book";
-    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
-    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
+    src: url("public/et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
+    src: url("public/et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("public/et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("public/et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("public/et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -30,8 +30,8 @@
 
 @font-face {
     font-family: "et-book-roman-old-style";
-    src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot");
-    src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.woff") format("woff"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.ttf") format("truetype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.svg#etbookromanosf") format("svg");
+    src: url("public/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot");
+    src: url("public/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot?#iefix") format("embedded-opentype"), url("public/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.woff") format("woff"), url("public/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.ttf") format("truetype"), url("public/et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.svg#etbookromanosf") format("svg");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -135,6 +135,12 @@ body {
     margin: auto;
     font-size: 1.8rem;
     padding: 0 1em;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
 }
 
 blockquote {
@@ -161,6 +167,18 @@ a, .tufte-underline {
     background-repeat: no-repeat, no-repeat, repeat-x;
     text-shadow: 0.03em 0 var(--color-theme-background), -0.03em 0 var(--color-theme-background), 0 0.03em var(--color-theme-background), 0 -0.03em var(--color-theme-background), 0.06em 0 var(--color-theme-background), -0.06em 0 var(--color-theme-background), 0.09em 0 var(--color-theme-background), -0.09em 0 var(--color-theme-background), 0.12em 0 var(--color-theme-background), -0.12em 0 var(--color-theme-background), 0.15em 0 var(--color-theme-background), -0.15em 0 var(--color-theme-background);
     background-position: 0% 93%, 100% 93%, 0% 93%;
+}
+
+a.heading-ref {
+    background: none;
+}
+
+a.heading-ref:hover:before {
+    display: inline-block;
+    position: relative;
+    width: 0;
+    left: -1em;
+    content: "#";
 }
 
 a:hover {
