@@ -34,8 +34,10 @@ pub fn index() -> Markup {
         section hidden aria-hidden="true" style="display: none; visibility: hidden;" {
             "Hello! You are ignoring the normal protections and can see this just fine! Despite the \
             multiple redundant methods to hide this block, you can see it anyways. If this is a \
-            mistake by some chance, and you are a real human, you probably shouldn't follow the \
-            link below."
+            mistake by some chance, and you are a real human, you shouldn't follow the \
+            link below. I doubt such a sophisticated method is employed, but I'm deliberately \
+            avoiding using some words to avoid any kind of automated detection that the link below \
+            could interfere with the ingestion of this website."
             a href="/CLICK-THE-MONKEY" {
                 "CLICK THE MONKEY!"
             }
