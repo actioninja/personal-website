@@ -8,7 +8,9 @@ pub fn optimize_css(in_str: &str) -> String {
     let minify_options = MinifyOptions::default();
     stylesheet.minify(minify_options).expect("Failed to minify");
 
-    let mut printer_options = PrinterOptions::default();
-    printer_options.minify = true;
+    let printer_options = PrinterOptions {
+        minify: true,
+        ..PrinterOptions::default()
+    };
     stylesheet.to_css(printer_options).unwrap().code
 }

@@ -1,0 +1,89 @@
+---
+title: When a sigkill isn't the OOM killer
+subheading: Something that had me tearing my hair out for a bit.
+date: 2024-02-06T00:00:00-08:00
+category: nix
+draft: false
+tags:
+  - nix
+  - nixos
+  - short
+  - informative
+---
+For the christening post, I might as well try to help some future peoples.
+
+
+
+A bit ago I was having a very mysterious issue with NixOS. Whenever running nixos-rebuild, suddenly
+my shell would die abruptly with cryptic error messages:
+
+```
+[I] actioninja@wshell ~/D/NixConfig (main)> sudo nixos-rebuild --flake . switch
+Killed
+
+[process exited with code 137 (0x00000089)]
+You can now close this terminal with Ctrl+D, or press Enter to restart.
+```
+
+Now this was a session within WSL, maybe something was misbehaving with WSL or the nixos-wsl bridge.
+This, alas, was completely wrong. Running on a full Hyper-V VM resulted in the _entire user session_
+being sigkilled. Maybe a Hyper-V problem? Nope, real hardware, same problem. It was something wrong
+with my nixos config, but I couldn't figure out what.
+
+Most searches were turning up with many stack overflow posts about the OOM
+killer. Asking the Nix Discord got several people confidently telling me that Nix builds need a lot
+of a RAM and it's definitely the OOM killer, despite my repeated insistence that the systems had
+enough RAM and nothing was in SystemD's OOM kill logs. Finally, after asking on the Nix Matrix
+server, someone suggested checking logs as the system booted to see if there was any unexpected
+errors, which lead me down _another_ incorrect rabbit hole after discovering an errant log relating
+to home manager. However, this ended up being the secret.
+
+One of the word salad search results I had started desperately making more esoteric to try to get
+any relevant information at all hit me on to someone's public irc log archive of the #nixos irc
+channel.[^1]
+
+And what do you know it, someone in 2020 was having the _exact_ issue I was having. And there was my fix.
+
+# The Fix
+
+Somehow, I had managed to configure my user as part of `nixbld`. If your user's groups includes
+`nixbld` in your NixOS config, the user's session will be sigkilled during any nix build.
+
+To fix, make sure `nixbld` isn't in your user's NixOS config groups, then run
+`gpasswd --delete <user> nixbld` to get your user out of the group. Relog, then run `nixos-rebuild`
+to lock in the change.
+
+## Why?
+
+`nixbld` is an internal group used by nix for its build users. At one stage of nix builds, every
+user belonging to the `nixbld` group gets its session sigkilled. I must have cargo culted or put
+that in there not realizing what I had done. Oops.
+
+
+
+# Tag Overload
+
+To close out, here's a wall of random words to hopefully bump this up in search relevance for the
+word salad you may end up searching. They may be similar to things I typed in desperation
+
+NixOS sigkill nothing in OOM killer logs
+
+[process exited with code 137 (0x00000089)]
+
+Main process exited, code=killed, status=9/KILL
+
+NixOS shell being killed when running nixos-rebuild
+
+NixOS shell sigkill no OOM
+
+NixOS shell crashing when running nixos-rebuild
+
+NixOS process exited 137
+
+NixOS user session being sigkilled when running nixos-rebuild
+
+NixOS user session sigkill 137
+
+`systemd[1]: home-manager-*.service: Main process exited, code=killed, status=9/KILL`
+
+[^1]: [https://logs.nix.samueldr.com/nixos/2020-03-10](https://logs.nix.samueldr.com/nixos/2020-03-10)

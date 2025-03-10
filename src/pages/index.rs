@@ -8,18 +8,27 @@ pub struct Contact {
 }
 
 pub static CONTACTS: Lazy<Vec<Contact>> = Lazy::new(|| {
-    vec![Contact {
-        name: "Mastodon",
-        link: "https://hachyderm.io/@actioninja",
-        display: "@actioninja@hachyderm.io",
-    }]
+    vec![
+        Contact {
+            name: "Mastodon",
+            link: "https://hachyderm.io/@actioninja",
+            display: "@actioninja@hachyderm.io",
+        },
+        Contact {
+            name: "Github",
+            link: "https://github.com/actioninja",
+            display: "actioninja",
+        },
+    ]
 });
 
 pub fn index() -> Markup {
     html! {
         section {
-
-            "I primarily make software for the sake of it. I take my craft seriously and believe that software should be made with care and attention to detail."
+            "I'm Rob Bailey. I'm primarily a software developer with an interest in many fields, including audio, electronics, video games, and music. I especially enjoy working on tooling to create mods or video games."
+        }
+        section {
+            "I primarily make software for the sake of it. I take my craft seriously and believe that software should be made with care and attention to detail, especially with regard to the end user."
         }
 
         h2 {
@@ -41,7 +50,7 @@ pub fn index() -> Markup {
                     .email-tricky {
                         "Or you can just email me at actioninja@criticalaction"
                         b {
-                            ".fuckyouspammers"
+                            ".fuckyouspammers.hisourcereaders.sorrycssdisablers"
                         }
                         ".net"
                     }

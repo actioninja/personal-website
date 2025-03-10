@@ -200,7 +200,12 @@ footer {
     border-top: var(--standard-border-style);
     padding-top: 1em;
     margin-top: 2em;
+    margin-bottom: 2em;
     font-size: 1.4rem;
+}
+
+img {
+    max-width: 100%;
 }
 
 nav {
@@ -222,10 +227,6 @@ nav ul {
 
 nav li:not(:last-child):after {
     content: " | ";
-}
-
-.adblock-warning:before {
-    content: "⚠️ It appears you are not using an adblocker. Advertising is a waste of your brain space. Please consider installing an adblocker.";
 }
 
 div.email-tricky b {

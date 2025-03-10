@@ -1,5 +1,9 @@
 use maud::{html, Markup};
 
 pub fn projects() -> Markup {
-    html! {}
+    html! {
+        div {
+            img src="/img/pikachu_construction.gif";
+        }
+    }
 }

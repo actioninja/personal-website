@@ -25,7 +25,9 @@ pub fn blog_page(page: &Page) -> Markup {
         }
         p {
             @for tag in page.frontmatter.tags.iter() {
-                (tag)
+                a href=(format!("/blog/tag/{tag}")) {
+                    (tag)
+                }
                 " "
             }
         }

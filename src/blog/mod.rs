@@ -1,3 +1,4 @@
+use std::collections::BTreeMap;
 use std::fs;
 use std::path::Path;
 
@@ -7,10 +8,12 @@ use gray_matter::Matter;
 use once_cell::sync::Lazy;
 use serde::Deserialize;
 
+use crate::blog::index::{accumulate_categories, accumulate_tags, tag_page};
 use crate::layout::wrap;
 
 pub mod index;
 mod page;
+mod rss;
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -32,6 +35,14 @@ pub struct Page {
 }
 
 pub static BLOG_PAGES: Lazy<Vec<Page>> = Lazy::new(load_blog_pages);
+pub static TAGS: Lazy<BTreeMap<String, u32>> = Lazy::new(|| {
+    let pages: Vec<_> = BLOG_PAGES.iter().filter(|p| !p.frontmatter.draft).collect();
+    accumulate_tags(&pages)
+});
+pub static CATEGORIES: Lazy<BTreeMap<String, u32>> = Lazy::new(|| {
+    let pages: Vec<_> = BLOG_PAGES.iter().filter(|p| !p.frontmatter.draft).collect();
+    accumulate_categories(&pages)
+});
 
 const INVALID_SLUGS: [&str; 2] = ["tag", "category"];
 
@@ -74,5 +85,21 @@ pub fn generate_blog_pages() {
             .into_string(),
         )
         .expect("Could not write blog page");
+    }
+    for (tag, _) in TAGS.iter() {
+        let filtered_pages: Vec<_> = BLOG_PAGES
+            .iter()
+            .filter(|page| page.frontmatter.tags.contains(&tag.to_string()))
+            .collect();
+        fs::create_dir_all(format!("public/blog/tag/{tag}")).unwrap();
+        fs::write(
+            format!("public/blog/tag/{tag}/index.html"),
+            wrap(
+                &format!("{} - Critical Action", tag),
+                tag_page(tag, &filtered_pages),
+            )
+            .into_string(),
+        )
+        .unwrap()
     }
 }

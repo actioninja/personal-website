@@ -84,7 +84,9 @@ pub fn blog_index() -> Markup {
         h1 {
             "Blog"
         }
-        "Here's where I "
+        "Here's where I share information and opinions. The information useful, the opinions well informed, hopefully."
+        br {}
+        "There will be an RSS feed here eventually. Hopefully."
         h2 {
             "Categories"
         }

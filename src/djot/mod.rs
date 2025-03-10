@@ -1,7 +1,7 @@
 mod transform_headers;
 
 use jotdown::Render;
-use maud::{html, Markup, PreEscaped};
+use maud::{Markup, PreEscaped};
 
 use crate::djot::transform_headers::TransformHeaders;
 

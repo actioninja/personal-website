@@ -57,10 +57,10 @@ pub fn footer() -> Markup {
                 a href="https://creativecommons.org/licenses/by-sa/4.0/" {
                     "CC-BY-SA 4.0"
                 }
-                ". Contact me for usage that would not comply with that license. Any and all opinions are my own and not representative of my employers; future, past, or present."
+                ". Any and all opinions are my own and not representative of my employers; future, past, or present."
             }
             section {
-                "There is no privacy policy because this site does not track you in any way. This site has no advertising, no analytics, and no cookies. The only javascript on this site is used to detect if you're not using adblock, so I can tell you to use adblock."
+                "There is no privacy policy because this site does not track you in any way. This site has no advertising, no analytics, and no cookies."
             }
         }
     }
