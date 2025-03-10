@@ -49,7 +49,7 @@ pub fn footer() -> Markup {
     html! {
         footer {
             section {
-                "Copyright 2023 Rob Bailey. All source code for this website is licensed under the terms of "
+                "Copyright 2025 Rob Bailey. All source code for this website is licensed under the terms of "
                 a href="https://www.mozilla.org/en-US/MPL/2.0/" {
                     "MPL 2.0"
                 }

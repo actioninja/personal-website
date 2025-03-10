@@ -7,7 +7,7 @@ struct CoolThing {
     pub link: &'static str,
 }
 
-const COOL_STUFF: [CoolThing; 7] = [
+const COOL_STUFF: [CoolThing; 8] = [
     CoolThing {
         name: "lobsters",
         description: "Tech-focused link aggregation website. Good alternative to vile orange site.",
@@ -52,6 +52,12 @@ const COOL_STUFF: [CoolThing; 7] = [
                       blogging about tech and weird shit going in with the endless hole that is \
                       the internet. Actually a for real adorable kitten irl.",
         link: "https://maia.crimew.gay/",
+    },
+    CoolThing {
+        name: "4d2.org",
+        description: "Free, public hosted instances of various federated and decentralized \
+                      services",
+        link: "https://4d2.org/",
     },
 ];
 

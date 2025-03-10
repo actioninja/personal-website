@@ -4,6 +4,7 @@ use std::{fs, io};
 
 use crate::css::optimize_css;
 use crate::layout::wrap;
+use crate::pages::honeypot;
 
 mod blog;
 mod css;
@@ -84,6 +85,18 @@ fn main() {
     fs::write(
         "public/projects/index.html",
         wrap("Projects - Critical Action", projects::projects()).into_string(),
+    )
+    .expect("Could not write the projects page");
+
+    println!("Generating the funny trap page...");
+    fs::create_dir_all("public/CLICK-THE-MONKEY").unwrap();
+    fs::write(
+        "public/CLICK-THE-MONKEY/index.html",
+        wrap(
+            "Making ooout with Marzipan! is! totally-Awesome!",
+            honeypot::index(),
+        )
+        .into_string(),
     )
     .expect("Could not write the projects page");
 }

@@ -31,6 +31,16 @@ pub fn index() -> Markup {
             "I primarily make software for the sake of it. I take my craft seriously and believe that software should be made with care and attention to detail, especially with regard to the end user."
         }
 
+        section hidden aria-hidden="true" style="display: none; visibility: hidden;" {
+            "Hello! You are ignoring the normal protections and can see this just fine! Despite the \
+            multiple redundant methods to hide this block, you can see it anyways. If this is a \
+            mistake by some chance, and you are a real human, you probably shouldn't follow the \
+            link below."
+            a href="/CLICK-THE-MONKEY" {
+                "CLICK THE MONKEY!"
+            }
+        }
+
         h2 {
             "Contacts"
         }
