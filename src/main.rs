@@ -1,5 +1,6 @@
 extern crate core;
 
+use std::error::Error;
 use std::fs::read_to_string;
 use std::path::Path;
 use std::{fs, io};
@@ -16,10 +17,10 @@ pub mod pages;
 mod projects;
 
 const ASCII_NONSENSE: &str = r#"___________ _____  __________ ______________________
-\_   _____//  _  \ \______   \\__    ___/\__    ___/ 
- |    __) /  /_\  \ |       _/  |    |     |    |    
- |     \ /    |    \|    |   \  |    |     |    |    
- \___  / \____|__  /|____|_  /  |____|     |____|    
+\_   _____//  _  \ \______   \\__    ___/\__    ___/
+ |    __) /  /_\  \ |       _/  |    |     |    |
+ |     \ /    |    \|    |   \  |    |     |    |
+ \___  / \____|__  /|____|_  /  |____|     |____|
      \/          \/        \/                        "#;
 
 
@@ -38,17 +39,18 @@ fn copy_dir_all(src: impl AsRef<Path>, dst: impl AsRef<Path>) -> io::Result<()> 
     Ok(())
 }
 
-fn wipe_public_dir() {
-    let read_dir = fs::read_dir("public").unwrap();
+fn wipe_public_dir() -> Result<(), Box<dyn Error>> {
+    let read_dir = fs::read_dir("public")?;
     for entry in read_dir {
-        let entry = entry.unwrap();
-        let ty = entry.file_type().unwrap();
+        let entry = entry?;
+        let ty = entry.file_type()?;
         if ty.is_dir() {
-            fs::remove_dir_all(entry.path()).unwrap();
+            fs::remove_dir_all(entry.path())?;
         } else if ty.is_file() {
-            fs::remove_file(entry.path()).unwrap();
+            fs::remove_file(entry.path())?;
         }
     }
+    Ok(())
 }
 
 fn main() {
@@ -56,7 +58,8 @@ fn main() {
     println!("Ferris Approved Really Terrific Templates");
     println!("\"They really suck!\" - Me");
 
-    wipe_public_dir();
+    wipe_public_dir()
+        .unwrap_or_else(|_| println!("Could not wipe public dir? Hopefully it doesn't exist..."));
     let _ = fs::create_dir("public");
     println!("Dumping assets into the public dir...");
     // dump all the assets into the public directory
