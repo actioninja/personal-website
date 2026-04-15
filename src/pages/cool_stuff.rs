@@ -7,7 +7,38 @@ struct CoolThing {
     pub link: &'static str,
 }
 
-const COOL_STUFF: [CoolThing; 8] = [
+const COOL_STUFF: [CoolThing; 12] = [
+    CoolThing {
+        name: "Warp Door",
+        description: "A blog where various strange and small games from around the internet are \
+                      showcased daily. Extremely fun showcase of the weird side of game dev, \
+                      makes an excellent substitute for Glorious Trainwrecks nowadays.",
+        link: "https://warpdoor.com/",
+    },
+    CoolThing {
+        name: "Glorious Trainwrecks",
+        description: "Used to be a community and forum of amateur, chaotic, fast paced game \
+                      development with a strong punk ethos of \"who cares if it's any good, at \
+                      least you made it.\" Nowadays has unfortunately declined in popularity a \
+                      lot and the forums are mostly dead.",
+        link: "https://glorioustrainwrecks.com/",
+    },
+    CoolThing {
+        name: "Lix",
+        description: "Hard fork of cppnix, the actual runtime part of Nix. Formed due to the many \
+                      political and ideological issues with the original project, but now \
+                      starting to make serious and significant efforts to actually fix serious \
+                      technical problems with Nix.",
+        link: "https://lix.systems/",
+    },
+    CoolThing {
+        name: "Auxolotl",
+        description: "An attempt to \"start over\" on nixpkgs and create an alternative ecosystem \
+                      which is designed better from the start instead of the more organic, \
+                      directionless, and messy way that nixpkgs formed. Slow going but very \
+                      promising.",
+        link: "https://auxolotl.org/",
+    },
     CoolThing {
         name: "lobsters",
         description: "Tech-focused link aggregation website. Good alternative to vile orange site.",
