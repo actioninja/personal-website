@@ -2,3 +2,6 @@
 
 fmt:
     cargo +nightly fmt
+
+deploy:
+    cargo run --release

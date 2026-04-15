@@ -28,7 +28,7 @@ You can now close this terminal with Ctrl+D, or press Enter to restart.
 Now this was a session within WSL, maybe something was misbehaving with WSL or the nixos-wsl bridge.
 This, alas, was completely wrong. Running on a full Hyper-V VM resulted in the _entire user session_
 being sigkilled. Maybe a Hyper-V problem? Nope, real hardware, same problem. It was something wrong
-with my nixos config, but I couldn't figure out what.
+with my NixOS config, but I couldn't figure out what.
 
 Most searches were turning up with many stack overflow posts about the OOM
 killer. Asking the Nix Discord got several people confidently telling me that Nix builds need a lot
@@ -40,7 +40,7 @@ to home manager. However, this ended up being the secret.
 
 One of the word salad search results I had started desperately making more esoteric to try to get
 any relevant information at all hit me on to someone's public irc log archive of the #nixos irc
-channel.[^1]
+channel.[[https://logs.nix.samueldr.com/nixos/2020-03-10](https://logs.nix.samueldr.com/nixos/2020-03-10)]{.sidenote}
 
 And what do you know it, someone in 2020 was having the _exact_ issue I was having. And there was my fix.
 

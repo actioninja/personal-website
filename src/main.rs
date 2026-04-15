@@ -1,3 +1,5 @@
+extern crate core;
+
 use std::fs::read_to_string;
 use std::path::Path;
 use std::{fs, io};
@@ -13,7 +15,7 @@ pub mod layout;
 pub mod pages;
 mod projects;
 
-const ASCII_NONSENSE: &str = r#"___________ _____  __________ ______________________ 
+const ASCII_NONSENSE: &str = r#"___________ _____  __________ ______________________
 \_   _____//  _  \ \______   \\__    ___/\__    ___/ 
  |    __) /  /_\  \ |       _/  |    |     |    |    
  |     \ /    |    \|    |   \  |    |     |    |    
@@ -36,14 +38,26 @@ fn copy_dir_all(src: impl AsRef<Path>, dst: impl AsRef<Path>) -> io::Result<()> 
     Ok(())
 }
 
+fn wipe_public_dir() {
+    let read_dir = fs::read_dir("public").unwrap();
+    for entry in read_dir {
+        let entry = entry.unwrap();
+        let ty = entry.file_type().unwrap();
+        if ty.is_dir() {
+            fs::remove_dir_all(entry.path()).unwrap();
+        } else if ty.is_file() {
+            fs::remove_file(entry.path()).unwrap();
+        }
+    }
+}
+
 fn main() {
     println!("{ASCII_NONSENSE}");
     println!("Ferris Approved Really Terrific Templates");
     println!("\"They really suck!\" - Me");
 
-    // doesn't matter if it fails, we'll just overwrite it
-    let _ = fs::remove_dir("public");
-    fs::create_dir("public").expect("Could not create public directory");
+    wipe_public_dir();
+    let _ = fs::create_dir("public");
     println!("Dumping assets into the public dir...");
     // dump all the assets into the public directory
     copy_dir_all("assets/public", "public").expect("Could not copy assets to public directory");

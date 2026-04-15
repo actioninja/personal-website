@@ -1,0 +1,24 @@
+---
+title: Test page for my custom djot transforms
+subheading: You shouldn't be seeing this
+date: 2019-01-01T00:00:00-08:00
+last_mod: 2019-01-01T00:00:00-08:00
+category: blog
+draft: true
+tags:
+  - test
+  - page
+  - blog
+---
+
+# Headings get properly shoved over once to the right (this should be an h2)
+
+## All headings get linkified
+
+> This is a block quote
+> With an author attribution
+> ^ Written by me [this is a link](https://yourethemannowdog.ytmnd.com/)
+
+This is a entry that should have a sidenote.[This text should be in the sidenote, the sidenote
+reference should be to the left, and this should be prepended with the sidenote number]{.sidenote}
+Here's more text to test it doesn't break the line.

@@ -9,6 +9,7 @@ use once_cell::sync::Lazy;
 use serde::Deserialize;
 
 use crate::blog::index::{accumulate_categories, accumulate_tags, tag_page};
+use crate::blog::rss::generate_rss_xml;
 use crate::layout::wrap;
 
 pub mod index;
@@ -44,7 +45,7 @@ pub static CATEGORIES: Lazy<BTreeMap<String, u32>> = Lazy::new(|| {
     accumulate_categories(&pages)
 });
 
-const INVALID_SLUGS: [&str; 2] = ["tag", "category"];
+const INVALID_SLUGS: [&str; 3] = ["tag", "category", "rss.xml"];
 
 pub fn load_blog_pages() -> Vec<Page> {
     let path = Path::new("assets/pages/blog");
@@ -68,6 +69,7 @@ pub fn load_blog_pages() -> Vec<Page> {
             content: raw_parsed.content,
         });
     }
+    pages.sort_by(|a, b| b.frontmatter.date.cmp(&a.frontmatter.date));
     pages
 }
 
@@ -102,4 +104,5 @@ pub fn generate_blog_pages() {
         )
         .unwrap()
     }
+    generate_rss_xml();
 }

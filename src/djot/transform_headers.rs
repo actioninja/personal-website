@@ -1,4 +1,5 @@
 use jotdown::{AttributeKind, Attributes, Container, Event, LinkType, SpanLinkType};
+use maud::html;
 
 pub struct TransformHeaders<'a, I: Iterator<Item = Event<'a>>> {
     parent: I,

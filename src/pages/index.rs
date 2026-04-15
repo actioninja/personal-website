@@ -10,6 +10,11 @@ pub struct Contact {
 pub static CONTACTS: Lazy<Vec<Contact>> = Lazy::new(|| {
     vec![
         Contact {
+            name: "Bluesky",
+            link: "https://bsky.app/profile/criticalaction.net",
+            display: "@criticalaction.net",
+        },
+        Contact {
             name: "Mastodon",
             link: "https://hachyderm.io/@actioninja",
             display: "@actioninja@hachyderm.io",
@@ -30,6 +35,7 @@ pub fn index() -> Markup {
         section {
             "I primarily make software for the sake of it. I take my craft seriously and believe that software should be made with care and attention to detail, especially with regard to the end user."
         }
+        img src="/img/holoputer.webp" class="holoputer";
 
         section hidden aria-hidden="true" style="display: none; visibility: hidden;" {
             "Hello! You are ignoring the normal protections and can see this just fine! Despite the \

@@ -60,7 +60,7 @@ pub fn footer() -> Markup {
                 ". Any and all opinions are my own and not representative of my employers; future, past, or present."
             }
             section {
-                "There is no privacy policy because this site does not track you in any way. This site has no advertising, no analytics, and no cookies."
+                "Privacy policy: This site has no analytics, no cookies, no tracking, and no javascript. The only personal data stored is your IP address which is used purely for abuse monitoring and filtering, and discarded hourly as part of log rotations."
             }
         }
     }

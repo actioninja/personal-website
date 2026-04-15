@@ -86,7 +86,10 @@ pub fn blog_index() -> Markup {
         }
         "Here's where I share information and opinions. The information useful, the opinions well informed, hopefully."
         br {}
-        "There will be an RSS feed here eventually. Hopefully."
+        "You can find an RSS Feed "
+        a href="/blog/blog.rss" {
+            "here."
+        }
         h2 {
             "Categories"
         }
