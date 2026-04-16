@@ -62,7 +62,6 @@ pub fn load_blog_pages() -> Vec<Page> {
         let matter = Matter::<YAML>::new();
         let raw_parsed = matter.parse(&contents);
         let frontmatter: Frontmatter = raw_parsed.data.unwrap().deserialize().unwrap();
-        dbg!(&frontmatter);
         pages.push(Page {
             slug: filename,
             frontmatter,
