@@ -38,7 +38,8 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
                           in it. The library eventually got pulled from the /tg/station 13 \
                           monorepo into its own standalone npm project, so unfortunately now my \
                           contribution history has been eated, so you're just gonna have to trust \
-                          me bro on that I made a big chunk of this.",
+                          me bro on that I made a big chunk of this. It's been a while, so a lot \
+                          of what I did has probably been ship of theseused away.",
         },
         Project {
             name: "resocraft",
@@ -126,7 +127,7 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
             name: "FastMathLib",
             link: "github.com/actioninja/FastMathLib",
             description: "A C# high performance linear algebra library. I was hoping to use this \
-                          fora later Vintage Story mod, but never ended up finishing it. The \
+                          for a later Vintage Story mod, but never ended up finishing it. The \
                           types are fully SIMD accelerated despite being fully written in native \
                           C#. I wasn't super happy with the end design because I ended up having \
                           an absolute crapload of boilerplate code and I felt I could have \
