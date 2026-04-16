@@ -294,6 +294,12 @@ label.margin-toggle:not(.sidenote-number) {
     top: -100px;
 }
 
+.link-svg {
+    height: 1.4rem;
+    width: 1.4rem;
+    color: var(--color-highlight);
+}
+
 @media (max-width: 760px) {
     body {
         width: 84%;
