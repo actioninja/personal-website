@@ -31,6 +31,16 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
                           thousands of downloads, probably from CI runs.",
         },
         Project {
+            name: "tgui",
+            link: "https://www.npmjs.com/package/tgui-core",
+            description: "A react-based GUI library for SS13 user interfaces. I wrote a decent \
+                          degree of early internal work on this, and a huge amount of UIs written \
+                          in it. The library eventually got pulled from the /tg/station 13 \
+                          monorepo into its own standalone npm project, so unfortunately now my \
+                          contribution history has been eated, so you're just gonna have to trust \
+                          me bro on that I made a big chunk of this.",
+        },
+        Project {
             name: "resocraft",
             link: "https://github.com/actioninja/resocraft",
             description: "I was inspired while working on hypnagogic of 'what if a similar tool \
@@ -72,6 +82,13 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
                           engineering some The Sims 2 data formats at the time, and the one that \
                           I was working on utilized Speex. This is a very simple crate that just \
                           creates hard bindings.",
+        },
+        Project {
+            name: "speex-rs",
+            link: "https://github.com/actioninja/speex-rs",
+            description: "A safer wrapper around speex-sys which wraps the speex api in a safe, \
+                          way. I was planning to reimplement the speex algorithms in pure safe \
+                          rust, but got sidetracked so now this crate exists.",
         },
         Project {
             name: "Critical Action",
@@ -139,16 +156,6 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
                           longer maintained. This is a fork that works on modern versions of \
                           Factorio and has a few bugs fixed.",
         },
-        Project {
-            name: "tgui",
-            link: "https://www.npmjs.com/package/tgui-core",
-            description: "A react-based GUI library for SS13 user interfaces. I wrote a decent \
-                          degree of early internal work on this, and a huge amount of UIs written \
-                          in it. The library eventually got pulled from the /tg/station 13 \
-                          monorepo into its own standalone npm project, so unfortunately now my \
-                          contribution history has been eated, so you're just gonna have to trust \
-                          me bro on that I made a big chunk of this.",
-        },
     ]
 });
 
@@ -174,6 +181,12 @@ pub static CONTRIBUTIONS: Lazy<Vec<Contribution>> = Lazy::new(|| {
             name: "onlyerror",
             link: "https://github.com/parasyte/onlyerror",
             description: "A very lightweight reimplementation of thiserror which doesn't use syn",
+        },
+        Contribution {
+            name: "rust-g",
+            link: "https://github.com/tgstation/rust-g",
+            description: "A rust crate which acts as an FFI library for BYOND for performance \
+                          sensitive stuff.",
         },
         Contribution {
             name: "dmi-rust",
