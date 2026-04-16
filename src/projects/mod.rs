@@ -16,7 +16,7 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
                           was a maintainer for several years, and rewrote many systems and lead \
                           many large projects. My biggest contributions included the rewrite of \
                           the UI system to the current React-based tgui system, and creating the \
-                          hypnagogic asset preprocessor",
+                          hypnagogic asset preprocessor.",
         },
         Project {
             name: "hypnagogic",
@@ -31,6 +31,15 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
                           thousands of downloads, probably from CI runs.",
         },
         Project {
+            name: "byond_fn",
+            link: "https://github.com/Cyberboss/byond_fn",
+            description: "A crate I wrote with the intention of having an easy all in one macro \
+                          to define Byond FFI functions in rust. I got mostly done with it, and \
+                          planned to support the \"v2\" FFI, but got so frustrated with how \
+                          poorly implemented the early v2 FFI was, and decided to stop working on \
+                          it and handed it to a friend of mine.",
+        },
+        Project {
             name: "tgui",
             link: "https://www.npmjs.com/package/tgui-core",
             description: "A react-based GUI library for SS13 user interfaces. I wrote a decent \
@@ -40,22 +49,6 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
                           contribution history has been eated, so you're just gonna have to trust \
                           me bro on that I made a big chunk of this. It's been a while, so a lot \
                           of what I did has probably been ship of theseused away.",
-        },
-        Project {
-            name: "resocraft",
-            link: "https://github.com/actioninja/resocraft",
-            description: "I was inspired while working on hypnagogic of 'what if a similar tool \
-                          existed for minecraft' and started writing that. I didn't get very far \
-                          in, but ended up making a few useful utilities in the process like a \
-                          crate for Minecraft launcher metadata. I'd like to return to this \
-                          eventually but I've been super busy.",
-        },
-        Project {
-            name: "mc-launchermeta",
-            link: "https://github.com/actioninja/mc-launchermeta",
-            description: "A crate for parsing Minecraft launcher metadata. I wrote this for \
-                          resocraft, but ended up making it a standalone crate because it's \
-                          useful for other projects.",
         },
         Project {
             name: "refpack-rs",
@@ -93,10 +86,20 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
         },
         Project {
             name: "Critical Action",
-            link: "https://criticalaction.net",
+            link: "https://github.com/actioninja/personal-website",
             description: "My personal website! I wrote this website from scratch in Rust using \
                           the maud template engine. No javascript, no frameworks, just HTML and \
                           CSS and a static site generator.",
+        },
+        Project {
+            name: "8values-svelte",
+            link: "https://github.com/8values-svelte/8values-svelte.github.io",
+            description: "a 1:1 whitebox reimplementation of the 8values political quiz using \
+                          Svelte. I made this to have a hands-on project to learn Svelte, and \
+                          ended up coming away with a more negative view of Svelte than I \
+                          expected. I was planning to create a bunch of jokey variations of this \
+                          because as part of myreimplementation I designed it from the start to \
+                          allow adding arbitrary categories and questions ",
         },
         Project {
             name: "Biomes for Vintage Story",
@@ -134,13 +137,20 @@ pub static PROJECTS: Lazy<Vec<Project>> = Lazy::new(|| {
                           reduced it with Rosyln codegen.",
         },
         Project {
-            name: "byond_fn",
-            link: "https://github.com/Cyberboss/byond_fn",
-            description: "A crate I wrote with the intention of having an easy all in one macro \
-                          to defineByond FFI functions in rust. I got mostly done with it, and \
-                          planned to support the \"v2\" FFI, but got so frustrated with how \
-                          poorly implemented the early v2 FFI was, and decided to stop working on \
-                          it and handed it to a friend of mine.",
+            name: "resocraft",
+            link: "https://github.com/actioninja/resocraft",
+            description: "I was inspired while working on hypnagogic of 'what if a similar tool \
+                          existed for minecraft' and started writing that. I didn't get very far \
+                          in, but ended up making a few useful utilities in the process like a \
+                          crate for Minecraft launcher metadata. I'd like to return to this \
+                          eventually but I've been super busy.",
+        },
+        Project {
+            name: "mc-launchermeta",
+            link: "https://github.com/actioninja/mc-launchermeta",
+            description: "A crate for parsing Minecraft launcher metadata. I wrote this for \
+                          resocraft, but ended up making it a standalone crate because it's \
+                          useful for other projects.",
         },
         Project {
             name: "Burning Sun",
