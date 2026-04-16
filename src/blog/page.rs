@@ -34,5 +34,9 @@ pub fn blog_page(page: &Page) -> Markup {
         article {
             (transformed)
         }
+        hr {}
+        a href="/blog/" {
+            "Back to Blog Listing"
+        }
     }
 }

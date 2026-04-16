@@ -91,10 +91,6 @@ pub fn blog_index() -> Markup {
             "here."
         }
         h2 {
-            "Categories"
-        }
-        (generate_tags(&categories, "category"))
-        h2 {
             "Tags"
         }
         (generate_tags(&tags, "tag"))
